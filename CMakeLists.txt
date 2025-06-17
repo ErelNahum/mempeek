@@ -8,6 +8,12 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(PYBIND11_FINDPYTHON ON)
 find_package(pybind11 CONFIG REQUIRED)
 
-pybind11_add_module(_core MODULE src/Bindings.cpp)
+pybind11_add_module(_core MODULE
+    src/Bindings.cpp
+    src/WinApi.cpp
+    src/Guards.cpp
+    src/Exceptions.cpp
+    src/Process.cpp
+)
 
 install(TARGETS _core DESTINATION ${SKBUILD_PROJECT_NAME})
