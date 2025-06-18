@@ -56,3 +56,29 @@ void windows::write_process_memory(
         THROW_WINDOWS_EXCEPTION();
     }
 }
+
+SYSTEM_INFO windows::get_system_info()
+{
+    SYSTEM_INFO system_info{};
+    GetSystemInfo(&system_info);
+    return system_info;
+}
+
+MEMORY_BASIC_INFORMATION windows::virtual_query_ex(
+    void* const process_handle,
+    const void* const address
+)
+{
+    MEMORY_BASIC_INFORMATION memory_information{};
+    if (
+        !VirtualQueryEx(
+            process_handle,
+            address,
+            &memory_information,
+            sizeof(memory_information)
+        )
+    ) {
+        THROW_WINDOWS_EXCEPTION();
+    }
+    return memory_information;
+}
