@@ -38,5 +38,27 @@ PYBIND11_MODULE(_core, m) {
 			},
 			py::arg("address"),
 			py::arg("data")
+		)
+		.def(
+			"find_memory_regions",
+			&Process::find_memory_regions
 		);
+
+	py::enum_<MemoryRegionType>(m, "MemoryRegionType")
+		.value("PRIVATE", MemoryRegionType::PRIVATE)
+		.value("IMAGE", MemoryRegionType::IMAGE)
+		.value("MAPPED", MemoryRegionType::MAPPED)
+		.value("UNDEFINED", MemoryRegionType::UNDEFINED);
+
+	py::enum_<MemoryRegionState>(m, "MemoryRegionState")
+		.value("FREE", MemoryRegionState::FREE)
+		.value("RESERVED", MemoryRegionState::RESERVED)
+		.value("COMMITED", MemoryRegionState::COMMITED);
+
+	py::class_<MemoryRegion>(m, "MemoryRegion")
+		.def_property_readonly("base_address", &MemoryRegion::base_address)
+		.def_property_readonly("size", &MemoryRegion::size)
+		.def_property_readonly("type", &MemoryRegion::type)
+		.def_property_readonly("state", &MemoryRegion::state)
+		.def_property_readonly("protection_flags", &MemoryRegion::protection_flags);
 }
