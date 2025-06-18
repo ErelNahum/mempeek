@@ -23,6 +23,9 @@ bytes_data = proc.read(address=0x7FFDF000, size=64)
 
 # Write memory
 proc.write(address=0x7FFDF000, data=b'\x90\x90\x90')
+
+# List memory regions
+memory_regions = proc.find_memory_regions()
 ```
 
 ## Motivation
