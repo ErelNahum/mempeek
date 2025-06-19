@@ -15,6 +15,7 @@ pybind11_add_module(_core MODULE
     src/Exceptions.cpp
     src/Process.cpp
     src/MemoryRegion.cpp
+    src/MemorySearch.cpp
 )
 
 install(TARGETS _core DESTINATION ${SKBUILD_PROJECT_NAME})
