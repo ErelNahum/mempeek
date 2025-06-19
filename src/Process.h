@@ -13,6 +13,7 @@ public:
 	std::vector<std::byte> read(const void* address, size_t size) const;
 	void write(void* address, std::span<const std::byte> data) const;
 	std::vector<MemoryRegion> find_memory_regions() const;
+	std::vector<std::uintptr_t> search_bytes(std::span<const std::byte> pattern) const;
 private:
 	HandleGuard m_process_handle;
 };
