@@ -28,6 +28,7 @@ public:
     MemoryRegionState state() const;
     MemoryRegionType type() const;
     uint32_t protection_flags() const;
+    bool is_readable() const;
 private:
     std::uintptr_t m_base_address;
     size_t m_size;

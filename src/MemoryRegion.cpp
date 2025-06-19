@@ -31,3 +31,12 @@ uint32_t MemoryRegion::protection_flags() const
 {
     return m_protection_flags;
 }
+
+bool MemoryRegion::is_readable() const
+{
+    return (
+        (MemoryRegionState::COMMITED == m_state) &&
+        (m_protection_flags & (PAGE_READONLY | PAGE_READWRITE | PAGE_EXECUTE_READ | PAGE_EXECUTE_READWRITE)) &&
+        !(m_protection_flags & PAGE_GUARD)
+    );
+}
