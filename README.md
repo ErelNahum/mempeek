@@ -1,5 +1,7 @@
 # mempeek
 
+![mempeek_banner](https://github.com/user-attachments/assets/392a415e-6598-4caa-a81a-2059e2c46e5e)
+
 mempeek is a lightweight Python library for Windows that allows you to inspect, scan, and manipulate the memory of running processes.
 
 ## installation
