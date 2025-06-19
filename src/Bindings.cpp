@@ -42,6 +42,19 @@ PYBIND11_MODULE(_core, m) {
 		.def(
 			"find_memory_regions",
 			&Process::find_memory_regions
+		)
+		.def(
+			"search_bytes",
+			[](const Process& self, py::bytes pattern) {
+				std::string pattern_string = pattern;
+				return self.search_bytes(
+					std::span<std::byte>(
+						reinterpret_cast<std::byte*>(pattern_string.data()),
+						pattern_string.size()
+					)
+				);
+			},
+			py::arg("pattern")
 		);
 
 	py::enum_<MemoryRegionType>(m, "MemoryRegionType")
