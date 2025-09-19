@@ -1,20 +1,28 @@
 # mempeek
 
-![mempeek_banner](https://github.com/user-attachments/assets/392a415e-6598-4caa-a81a-2059e2c46e5e)
+![mempeek_banner](/static/cover.png)
 
-mempeek is a lightweight Python library for Windows that allows you to inspect, scan, and manipulate the memory of running processes.
+⚡ *Lightweight Python library for inspecting, scanning, and manipulating memory of running Windows processes.*
 
-## installation
+[![Python](https://img.shields.io/badge/python-3.9%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![Platform](https://img.shields.io/badge/platform-windows-blue?logo=windows)](https://www.microsoft.com/windows)
+
+[//]: # ([![License]&#40;https://img.shields.io/badge/license-MIT-green?style=flat-square&#41;]&#40;LICENSE&#41;)
+
+[//]: # ([![PyPI]&#40;https://img.shields.io/pypi/v/mempeek?color=brightgreen&logo=pypi&#41;]&#40;https://pypi.org/project/mempeek/&#41;)
+
+
+## 📦 installation
 
 To install mempeek, simply use `pip`:
 
-```
+```bash
 $ pip install mempeek
 ```
 
-## Quick start
+## 🚀 Quick start
 
-```
+```python
 import mempeek
 
 # Attach to a process
@@ -33,7 +41,7 @@ memory_regions = proc.find_memory_regions()
 addresses = proc.search_bytes(pattern=b'MZ')
 ```
 
-## Motivation
+## 🎯 Motivation
 
 Manipulating memory in external processes is essential for reverse engineering, debugging, and dynamic analysis. While tools like Cheat Engine offer a GUI for this purpose, there is a lack of Pythonic, scriptable alternatives that are both powerful and easy to use.
 
